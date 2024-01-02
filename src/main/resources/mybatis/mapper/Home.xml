@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="daeucna.Security.domain.mapper.Home">
+	
+	<select id="getTestData" parameterType="map" resultType="map">
+		/* getTestData */
+		SELECT TOP (1000) [member_id]
+		      ,[email]
+		      ,[email_auth]
+		      ,[password]
+		      ,[provider]
+		  FROM [dbo].[members]
+	</select>
+ 
+</mapper>
