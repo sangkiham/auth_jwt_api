@@ -28,6 +28,7 @@ spring:
     hibernate:
       format_sql: true
       ddl-auto: update
+    defer-datasource-initialization: true
 
   datasource:  
     # mariadb
@@ -43,15 +44,16 @@ spring:
     #postgresql
     hikari:
       maximum-pool-size: 4
-    url: jdbc:postgresql://127.0.0.1:5432/tistory
-    username: sangki
-    password: sangki
+    url: jdbc:postgresql://127.0.0.1:5432/sangkiham
+    username: sangkiham
+    password: sangkiham
     driver-class-name: org.postgresql.Driver
 
   sql:
     init:
       encoding: UTF-8
-
+      mode: always
+      
 mybatis:
   type-aliases-package: daeucna
   mapper-locations: classpath:mybatis/mapper/**/*.xml
@@ -74,3 +76,8 @@ logging:
 
 server:
   port: 80
+  
+#Admin 초기 데이타 입력
+admin:
+  init : true
+  
