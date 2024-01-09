@@ -1,10 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <nav>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
-      </nav>
+      <Navbar />
       <router-view/>
     </v-main>
   </v-app>
@@ -12,10 +9,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import Navbar from '@/components/Navbar.vue'
 
 export default defineComponent({
   name: 'App',
-
+  components: {
+    Navbar
+  },
   data () {
     return {
       //

@@ -7,5 +7,11 @@ module.exports = defineConfig({
 
     devServer: {
 		proxy: 'http://localhost' // Spring Boot Server
-	}
+	},
+
+    pluginOptions: {
+      vuetify: {
+			// https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vuetify-loader
+		}
+    }
 })
