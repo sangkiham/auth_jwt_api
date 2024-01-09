@@ -12,8 +12,8 @@ export async function loginForm(loginInfo, store){
 
         VueCookies.set('token', response.data.token, '60s' );
         VueCookies.set('refresh_token', response.data.refreshToken, '1d' );
-        axios.defaults.headers['Authorization'] = "Bearer " + VueCookies.get('token');
-        axios.defaults.headers['REFRESH_TOKEN'] = VueCookies.get('refresh_token');
+        // axios.defaults.headers['Authorization'] = "Bearer " + VueCookies.get('token');
+        // axios.defaults.headers['REFRESH_TOKEN'] = VueCookies.get('refresh_token');
         console.log("token=" + VueCookies.get('token'));
         console.log("refresh_token=" + VueCookies.get('refresh_token'));
 
@@ -32,7 +32,7 @@ export async function refreshToken(){
     try{
         const response = await axios.post('/api/refreshtoken');
         VueCookies.set('token', response.data.token, '60s' );
-        axios.defaults.headers['Authorization'] = "Bearer " + VueCookies.get('token');
+        // axios.defaults.headers['Authorization'] = "Bearer " + VueCookies.get('token');
 
         return response.data.token;
     }catch(err){
