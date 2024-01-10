@@ -7,7 +7,7 @@
   </v-app>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue'
 import Navbar from '@/components/Navbar.vue'
 

@@ -3,18 +3,27 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import TuiGrid from "vue3-tui-grid"
+import 'tui-grid/dist/tui-grid.css';
+import "tui-date-picker/dist/tui-date-picker.css"; // use datepicker
+import 'material-icons/iconfont/material-icons.css';
+
+import PrimeVue from 'primevue/config';
+import 'primevue/resources/themes/lara-light-green/theme.css'
+
 const app = createApp(App);
 
 app.use(store)
-   .use(router);
+    .use(router)
+    .use(TuiGrid)
+    .use(PrimeVue);
 
 // vue-i18n
 import { createI18n } from 'vue-i18n'
 import enUS from './locales/en.json'
 import koKR from './locales/ko.json'
-
-type MessageSchema = typeof enUS // json 파일 타입화?해서 messages타입 지정해줌
-const i18n = createI18n<[MessageSchema], 'ko' | 'en'>({
+  
+const i18n = createI18n({
   // options
   locale: 'ko',
   fallbackLocale: 'en',
@@ -27,3 +36,4 @@ const i18n = createI18n<[MessageSchema], 'ko' | 'en'>({
 app.use(i18n);
 
 app.mount('#app')
+  

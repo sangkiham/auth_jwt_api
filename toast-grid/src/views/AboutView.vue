@@ -1,13 +1,13 @@
-<script setup lang="ts">
-import { TuiGridElement } from "vue3-tui-grid"
-import { OptColumn, OptRow } from 'tui-grid/types/options';
+<script setup>
 import { onMounted, ref } from 'vue';
 import axios from '../service/axios';
 import { useCookies } from "vue3-cookies";
 import { useStore } from "vuex";
+import Accordion from 'primevue/accordion';
+import AccordionTab from 'primevue/accordiontab';
 
 class CustomTextEditor {
-  el;
+
   constructor(props) {
     const el = document.createElement('input');
     const { maxLength } = props.columnInfo.editor.options;
@@ -32,7 +32,7 @@ class CustomTextEditor {
   }
 }
 
-const data = ref<OptRow[]>([
+const data = ref([
   {
     id: '10012',
     city: 'Seoul',
@@ -60,7 +60,7 @@ const data = ref<OptRow[]>([
   }
 ]);
 
-const columns = ref<OptColumn[]>([
+const columns = ref([
   {
     header: 'ID',
     name: 'id',
@@ -94,7 +94,7 @@ const columns = ref<OptColumn[]>([
   }
 ]);
 
-const GridTable = ref<TuiGridElement>();
+const GridTable = ref();
 
 onMounted(()=>{
   const grid = GridTable.value;
@@ -193,13 +193,31 @@ const getData = async ()=>{
 
 </script>
 
+
 <template>
-  <div>
-    <tui-grid 
-      ref="GridTable"
-      :data="data"
-      :columns="columns"
-    >
-    </tui-grid>
+  <div class="card">
+      <h1>{{ $t('app.home.header.header') }}</h1>
+      <Accordion :activeIndex="0">
+          <AccordionTab header="Header I">
+            <tui-grid 
+              ref="GridTable"
+              :data="data"
+              :columns="columns"
+            >
+            </tui-grid>
+          </AccordionTab>
+          <AccordionTab header="Header II">
+              <p class="m-0">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                  ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+              </p>
+          </AccordionTab>
+          <AccordionTab header="Header III">
+              <p class="m-0">
+                  At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
+                  officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+              </p>
+          </AccordionTab>
+      </Accordion>
   </div>
 </template>

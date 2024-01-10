@@ -1,0 +1,12 @@
+{
+	"app": {
+		"home": {
+			"header": {
+				"header": "Title"
+			},
+			"body": {
+				"detail": "detail"
+			}
+		}
+	}
+}
