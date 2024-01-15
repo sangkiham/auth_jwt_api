@@ -3,8 +3,6 @@ import { onMounted, ref } from 'vue';
 import axios from '../service/axios';
 import { useCookies } from "vue3-cookies";
 import { useStore } from "vuex";
-import Accordion from 'primevue/accordion';
-import AccordionTab from 'primevue/accordiontab';
 
 class CustomTextEditor {
 

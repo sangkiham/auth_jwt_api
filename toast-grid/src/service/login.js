@@ -5,6 +5,7 @@ import { useCookies } from "vue3-cookies";
 export async function loginForm(loginInfo, store){
     
     try{    
+        console.log('loginForm Start ');
         const response = await axios.post('/api/authenticate', loginInfo);
 
         console.log('response => ');

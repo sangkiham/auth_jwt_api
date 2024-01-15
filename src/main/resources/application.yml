@@ -75,7 +75,7 @@ logging:
     daeucna: debug
 
 server:
-  port: 80
+  port: 8080
   
 #Admin 초기 데이타 입력
 admin:
